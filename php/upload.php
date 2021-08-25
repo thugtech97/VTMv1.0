@@ -8,7 +8,7 @@ $filen = mysqli_real_escape_string($conn, $_GET['filen']);
 if(isset($_GET['files'])){
 	//$filen = mysqli_real_escape_string($_GET['filen']);
 	$files = array();
-	$uploaddir = '../UPLOADED/';
+	$uploaddir = '../../VTMv1.0 files/UPLOADED/';
 	foreach($_FILES as $file){
 		//$filen = $file['name'];
 		$filename = $file['name'];
