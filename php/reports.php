@@ -2,6 +2,15 @@
 
 $conn = mysqli_connect("localhost", "root", "", "vas-vas");
 
+function load_numbers(){
+	global $conn;
+
+	$num_tally_sheets = mysqli_num_rows(mysqli_query($conn, "SELECT DISTINCT tally_name FROM tbl_data"));
+	$num_vaccinees = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_data"));
+
+	echo json_encode(array("num_tally_sheets"=>$num_tally_sheets, "num_vaccinees"=>$num_vaccinees));
+}
+
 function get_tally(){
 	global $conn;
 
@@ -65,6 +74,9 @@ switch($call_func){
 		break;
 	case "get_tally":
 		get_tally();
+		break;
+	case "load_numbers":
+		load_numbers();
 		break;
 }
 

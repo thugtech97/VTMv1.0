@@ -24,7 +24,7 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.php">卌 VTMv1.0</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><h4>≡</h4></button>
 
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -57,12 +57,30 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">卌 VAS TALLY MAKER v1.0</h1>
                         <hr>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">📝 Number of Tally Sheets created</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <p class="text-white stretched-link" id="num_tally_sheet"><img src="load.gif" height="25" width="25"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">👩‍👧‍👧 Number of Vaccinees uploaded</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <p class="text-white stretched-link" id="num_vaccinees"><img src="load.gif" height="25" width="25"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 🏢
                                 <span id="hf_name">Health Facility Name</span>
                                 <span style="float: right;">
-                                    <button class="btn btn-default" data-toggle="modal" data-target="#modal_upload"><i class="fa fa-plus"></i> Add Data</button>
+                                    <button class="btn btn-default" data-toggle="modal" data-target="#modal_upload">➕ Add Data</button>
                                 </span>
                             </div>
                             <div class="card-body">
@@ -120,5 +138,8 @@
         <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script type="text/javascript">
+            load_numbers();
+        </script>
     </body>
 </html>

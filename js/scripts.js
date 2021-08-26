@@ -114,3 +114,16 @@ $("#select_tally").change(function(){
         }
     });
 });
+
+function load_numbers(){
+    $.ajax({
+        url: "php/reports.php",
+        type: "POST",
+        data: {call_func: "load_numbers"},
+        dataType: "JSON",
+        success: function(data){
+            $("#num_tally_sheet").html(data["num_tally_sheets"]);
+            $("#num_vaccinees").html(data["num_vaccinees"]);
+        }
+    });
+}
