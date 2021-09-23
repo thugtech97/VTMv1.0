@@ -28,7 +28,7 @@
 
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <input style="display: none;" type="file" name="file_upload" id="file_upload" class="file" multiple>
+                <input style="display: none;" type="file" name="file_upload" id="file_upload" class="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple>
             </form>
 
             <!-- Navbar-->
@@ -101,9 +101,9 @@
                                 <h4 class="modal-title"><i class="fa fa-plus"></i> Add Data</h4>
                               </div>
                               <div class="modal-body">
-                                <div>Create a tally sheet for&nbsp;&nbsp;<input id="tally_facility" type="text" onblur="validate_()">.</div>
+                                <div>Create a tally sheet for&nbsp;&nbsp;<input id="tally_facility" type="text" onblur="validate_()" placeholder="(Facility Name)">.</div>
                                 <br>
-                                <div>Upload Files:&nbsp;&nbsp;<button class="btn btn-default btn-xs" id="upload_files" onclick="upload_data();" disabled=""><i class="fa fa-upload"></i></button>
+                                <div>Upload VAS Files (.xlsx) <span id="u_tf"></span>:&nbsp;&nbsp;<button class="btn btn-default btn-xs" id="upload_files" onclick="upload_data();" disabled=""><i class="fa fa-upload"></i></button>
                                 <br>
                                 <br>
                                 <div class="pull-right">

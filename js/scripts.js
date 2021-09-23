@@ -24,8 +24,10 @@ function open_modal(){
 function validate_(){
     if(($("#tally_facility").val().replace(/ +/g, "")) != ""){
         $("#upload_files").prop("disabled", false);
+        $("#u_tf").html("for "+$("#tally_facility").val());
     }else{
         $("#upload_files").prop("disabled", true);
+        $("#u_tf").html("");
     }
 }
 
@@ -66,6 +68,8 @@ function uploadFiles(event) {
                 $('#datatablesSimple').DataTable().destroy();
             }
             $("table#datatablesSimple").html(data["table"]);
+            $("#num_tally_sheet").html("1");
+            $("#num_vaccinees").html(data["num_vaccinees"]);
             $(document).prop('title', 'Tally Sheet - '+data["filename"]);
             $("#hf_name").html(data["filename"]);
             create_datatable();

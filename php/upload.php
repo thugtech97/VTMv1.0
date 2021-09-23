@@ -8,7 +8,7 @@ $filen = mysqli_real_escape_string($conn, $_GET['filen']);
 if(isset($_GET['files'])){
 	//$filen = mysqli_real_escape_string($_GET['filen']);
 	$files = array();
-	$uploaddir = '../../VTMv1.0 files/UPLOADED/';
+	$uploaddir = '../VTMv1.0 files/UPLOADED/';
 	foreach($_FILES as $file){
 		//$filen = $file['name'];
 		$filename = $file['name'];
@@ -27,6 +27,7 @@ if(isset($_GET['files'])){
 			}else{
 				echo SimpleXLSX::parseError();
 			}
+			unlink($uploaddir .basename($file['name']));
 		}
 	}
 
@@ -69,7 +70,9 @@ if(isset($_GET['files'])){
 		$num_df = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_data WHERE tally_name = '$filen' AND vaccination_date = '$vaccination_date' AND deferral = 'Y'"));
 		$table.="<tr style=\"text-align:center;\"><td>".substr($vaccination_date, 0, 10)."</td>".$content."<td>".$num_fd."</td><td>".$num_sd."</td><td>".$num_df."</td></tr>";
 	}
-	echo json_encode(array("filename"=>$filen, "table"=>$table));
+	$num_vaccinees = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tbl_data WHERE tally_name = '$filen'"));
+	mysqli_query($conn, "DELETE FROM tbl_data WHERE tally_name = '$filen'");
+	echo json_encode(array("filename"=>$filen, "table"=>$table, "num_vaccinees"=>$num_vaccinees));
 }
 
 ?>
